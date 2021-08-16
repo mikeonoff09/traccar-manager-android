@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 @file:Suppress("DEPRECATION")
-package org.traccar.manager
+package ec.com.jobtrack.manager
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -42,11 +42,11 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import androidx.preference.PreferenceManager
 
 class MainFragment : WebViewFragment() {
 
     private lateinit var broadcastManager: LocalBroadcastManager
+    private var serverUrl = "http://gps.jobtrack.com.ec:8082/"
 
     inner class AppInterface {
         @JavascriptInterface
@@ -77,15 +77,7 @@ class MainFragment : WebViewFragment() {
         webSettings.domStorageEnabled = true
         webSettings.databaseEnabled = true
         webSettings.mediaPlaybackRequiresUserGesture = false
-        val url = PreferenceManager.getDefaultSharedPreferences(activity)
-            .getString(MainActivity.PREFERENCE_URL, null)
-        if (url != null) {
-            webView.loadUrl(url)
-        } else {
-            activity.fragmentManager
-                .beginTransaction().replace(android.R.id.content, StartFragment())
-                .commitAllowingStateLoss()
-        }
+        webView.loadUrl(serverUrl)
     }
 
     private val broadcastReceiver: BroadcastReceiver = object : BroadcastReceiver() {

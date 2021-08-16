@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 @file:Suppress("DEPRECATION")
-package org.traccar.manager
+
+package ec.com.jobtrack.manager
 
 import android.os.Build
 import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.preference.PreferenceManager
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,20 +33,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initContent() {
-        if (PreferenceManager.getDefaultSharedPreferences(this).contains(PREFERENCE_URL)) {
-            fragmentManager.beginTransaction().add(android.R.id.content, MainFragment()).commit()
-        } else {
-            fragmentManager.beginTransaction().add(android.R.id.content, StartFragment()).commit()
-        }
+        fragmentManager.beginTransaction().add(android.R.id.content, MainFragment()).commit()
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
         val fragment = fragmentManager.findFragmentById(android.R.id.content)
         fragment?.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
     companion object {
-        const val PREFERENCE_URL = "url"
+        const val PREFERENCE_URL = "http://gps.jobtrack.com.ec:8082"
     }
 }
