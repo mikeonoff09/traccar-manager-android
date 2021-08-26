@@ -16,6 +16,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
+            android:theme="@style/SplashTheme"
             android:name=".MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>

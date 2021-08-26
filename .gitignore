@@ -7,3 +7,7 @@ app/src/main/assets
 .DS_Store
 google-services.json
 *.apk
+*.aab
+app/regular/release/app-regular-release.zip
+app/regular/release/app-regular-release.zip
+app/regular/release/app-regular-release.zip

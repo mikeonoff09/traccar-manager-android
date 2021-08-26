@@ -46,7 +46,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager
 class MainFragment : WebViewFragment() {
 
     private lateinit var broadcastManager: LocalBroadcastManager
-    private var serverUrl = "http://gps.jobtrack.com.ec:8082"
+    private var serverUrl = "http://gps.jobtrack.com.ec:8082/"
 
     inner class AppInterface {
         @JavascriptInterface

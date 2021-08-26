@@ -25,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null) {
@@ -47,8 +48,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-//        const val PREFERENCE_URL = "http://gps.jobtrack.com.ec:8082"
-        const val PREFERENCE_URL = "http://192.168.1.186:8082"
+        const val PREFERENCE_URL = "http://gps.jobtrack.com.ec:8082"
+//        const val PREFERENCE_URL = "http://192.168.1.186:8082"
     }
 
 }
